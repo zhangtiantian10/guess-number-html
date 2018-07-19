@@ -25,4 +25,8 @@ describe('GuessNumberGame', function() {
     it('should return 2A2B for checkInput 1 2 4 3 when answer is 1 2 3 4', function () {
         expect(new GuessNumberGame(generator).test('1 2 4 3')).toEqual('2A2B');
     });
+
+    it('should return wrong input when input is wrong', function () {
+        expect(new GuessNumberGame(generator).test('1 2 4 a')).toEqual('wrong input');
+    });
 })

@@ -40,4 +40,8 @@ describe('GuessNumberGame', function() {
         expect(game.test('1 2 4 3')).toEqual('2A2B');
         expect(game.test('1 2 4 3')).toEqual('2A2B\ngame over');
     });
+
+    it('should return 4A0B you win when input currect number', function () {
+        expect(new GuessNumberGame(generator).test('1 2 3 4')).toEqual('4A0B\nyou win');
+    });
 })

@@ -29,4 +29,15 @@ describe('GuessNumberGame', function() {
     it('should return wrong input when input is wrong', function () {
         expect(new GuessNumberGame(generator).test('1 2 4 a')).toEqual('wrong input');
     });
+
+    it('should return game over when test 6 times', function () {
+        const game = new GuessNumberGame(generator);
+
+        expect(game.test('1 2 4 3')).toEqual('2A2B');
+        expect(game.test('1 2 4 3')).toEqual('2A2B');
+        expect(game.test('1 2 4 3')).toEqual('2A2B');
+        expect(game.test('1 2 4 3')).toEqual('2A2B');
+        expect(game.test('1 2 4 3')).toEqual('2A2B');
+        expect(game.test('1 2 4 3')).toEqual('2A2B\ngame over');
+    });
 })

@@ -16,4 +16,8 @@ describe('GuessNumberGame', function() {
     it('should return 2A2B for input 1 2 4 3 when answer is 1 2 3 4', function () {
         expect(new GuessNumberGame().start('1 2 4 3')).toEqual('2A2B');
     });
+
+    it('should return true when input is 4 digit number ', function () {
+        expect(new GuessNumberGame().input('1 2 3 4')).toEqual(true);
+    });
 })

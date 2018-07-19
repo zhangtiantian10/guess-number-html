@@ -10,7 +10,9 @@ class GuessNumberGame {
         if (new Validate().validateInput(input)) {
             const {position, includeNumber} = this.compare(input);
             let str = `${position}A${includeNumber - position}B`;
-            if (this.count >= 5) {
+            if (str === '4A0B') {
+                str += '\nyou win';
+            } else if (this.count >= 5) {
                 str += '\ngame over';
             }
 

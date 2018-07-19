@@ -11,7 +11,7 @@ describe('GuessNumberGame', function() {
     });
 
     it('should return 4A0B for checkInput 1 2 3 4 when answer is 1 2 3 4', function () {
-        expect(new GuessNumberGame(generator).test('1 2 3 4')).toEqual('4A0B');
+        expect(new GuessNumberGame(generator).test('1 2 3 4')).toEqual('4A0B\nyou win');
     });
 
     it('should return 3A0B for checkInput 1 2 3 5 when answer is 1 2 3 4', function () {

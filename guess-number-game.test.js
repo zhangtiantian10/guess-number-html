@@ -20,4 +20,8 @@ describe('GuessNumberGame', function() {
     it('should return true when input is 4 digit number ', function () {
         expect(new GuessNumberGame().input('1 2 3 4')).toEqual(true);
     });
+
+    it('should return false when input include char', function () {
+        expect(new GuessNumberGame().input('1 a 3 4')).toEqual(false);
+    });
 })

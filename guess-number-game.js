@@ -4,15 +4,13 @@ class GuessNumberGame {
     }
 
     start(input) {
-        const position = this.getPositionIsCorrect(input);
-        return `${position}A0B`;
-    }
-
-    getPositionIsCorrect(input) {
         const inputs = input.split(' ');
         const answers = this.answer.split(' ');
 
-        return inputs.filter((item, index) => answers[index] === item).length;
+        const position = inputs.filter((item, index) => answers[index] === item).length;
+        const includeNumber = inputs.filter(item => answers.includes(item)).length
+
+        return `${position}A${includeNumber - position}B`;
     }
 }
 

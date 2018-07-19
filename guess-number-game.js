@@ -12,6 +12,10 @@ class GuessNumberGame {
 
         return `${position}A${includeNumber - position}B`;
     }
+
+    input(string) {
+        return string.split(' ').length === 4;
+    }
 }
 
 module.exports = GuessNumberGame;

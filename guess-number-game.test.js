@@ -1,6 +1,11 @@
 const GuessNumberGame = require('./guess-number-game');
 
 describe('GuessNumberGame', function() {
+    beforeEach(() => {
+        jest.spyOn(GuessNumberGame.prototype, "generateAnswer")
+            .mockReturnValue('1 2 3 4');
+    });
+
     it('should return 4A0B for checkInput 1 2 3 4 when answer is 1 2 3 4', function () {
         expect(new GuessNumberGame().test('1 2 3 4')).toEqual('4A0B');
     });
@@ -19,5 +24,10 @@ describe('GuessNumberGame', function() {
 
     it('should console game over info when input 6 times', function () {
 
+    });
+
+    it('should return 0A4B when generate 4 digits answer is 1 2 3 4 and input is  1 2 3 4 ', function () {
+
+        expect(new GuessNumberGame().test('1 2 3 4')).toEqual('4A0B');
     });
 })

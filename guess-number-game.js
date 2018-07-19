@@ -14,7 +14,9 @@ class GuessNumberGame {
     }
 
     input(string) {
-        return string.split(' ').length === 4;
+        const array = string.split(' ');
+        const charCodes = array.filter(a => a.charCodeAt(0) > 57 || a.charCodeAt(0) < 48)
+        return array.length === 4 && charCodes.length === 0;
     }
 }
 

@@ -1,12 +1,17 @@
+const Validate = require('./validate');
+
 class GuessNumberGame {
     constructor(generator) {
         this.answer = generator.generate();
     }
 
     test(input) {
-        const {position, includeNumber} = this.compare(input)
-
-        return `${position}A${includeNumber - position}B`;
+        if (new Validate().validateInput(input)) {
+            const {position, includeNumber} = this.compare(input);
+            return `${position}A${includeNumber - position}B`;
+        } else {
+            return 'wrong input';
+        }
     }
 
     compare(input) {

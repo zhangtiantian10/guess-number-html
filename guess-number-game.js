@@ -3,7 +3,7 @@ class GuessNumberGame {
         this.answer = '1 2 3 4';
     }
 
-    start(input) {
+    compare(input) {
         const inputs = input.split(' ');
         const answers = this.answer.split(' ');
 
@@ -13,7 +13,7 @@ class GuessNumberGame {
         return `${position}A${includeNumber - position}B`;
     }
 
-    input(string) {
+    checkInput(string) {
         const array = string.split(' ');
         const charCodes = array.filter(a => a.charCodeAt(0) > 57 || a.charCodeAt(0) < 48)
         return array.length === 4 && charCodes.length === 0;

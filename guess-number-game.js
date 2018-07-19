@@ -3,12 +3,19 @@ const Validate = require('./validate');
 class GuessNumberGame {
     constructor(generator) {
         this.answer = generator.generate();
+        this.count = 0;
     }
 
     test(input) {
         if (new Validate().validateInput(input)) {
             const {position, includeNumber} = this.compare(input);
-            return `${position}A${includeNumber - position}B`;
+            let str = `${position}A${includeNumber - position}B`;
+            if (this.count >= 5) {
+                str += '\ngame over';
+            }
+
+            this.count++;
+            return str;
         } else {
             return 'wrong input';
         }

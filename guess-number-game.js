@@ -1,6 +1,6 @@
 class GuessNumberGame {
-    constructor() {
-        this.answer = this.generateAnswer();
+    constructor(generator) {
+        this.answer = generator.generate();
     }
 
     test(input) {
@@ -16,18 +16,6 @@ class GuessNumberGame {
         const includeNumber = inputs.filter(item => answers.includes(item)).length
 
         return {position, includeNumber};
-    }
-
-    generateAnswer() {
-        const answers = [];
-        while (answers.length < 4) {
-            const random = Math.floor(Math.random() * 10);
-            if (!answers.includes(random)) {
-                answers.push(random);
-            }
-        }
-
-        return answers.join(' ');
     }
 }
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guess Number</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+</head>
+<body>
+    <input type="text" class="form-control" id="input">
+    <button class="btn btn-primary" type="button" onclick="inputNumber()">确定</button>
+    <table id="history" border="1"></table>
+    <h3 id="message"></h3>
+<script src="./guess-number-game.js" type="text/javascript"></script>
+<script src="./generator.js" type="text/javascript"></script>
+<script src="./validate.js" type="text/javascript"></script>
+    <script>
+        let generator = new Generator();
+        let guessNumber = new GuessNumberGame(generator);
+        let results = [];
+
+        function inputNumber() {
+            const input = document.getElementById("input").value.split('').join(' ');
+            let result = guessNumber.test(input)
+            const splitResults = result.split('\n')
+
+            results.push({input, result : splitResults[0]});
+
+            document.getElementById("history").innerHTML =
+                results.map(r => `<tr><td>${r.input}</td><td>${r.result}</td></tr>`).join('');
+
+            if (splitResults.length > 1) {
+                document.getElementById("message").innerText = splitResults[1]
+                clearGame();
+            } else if (result === '4A0B') {
+                document.getElementById("message").innerText = "you win"
+                clearGame();
+            } else {
+                document.getElementById("message").innerText ="";
+            }
+        }
+
+        function clearGame() {
+            results = [];
+            guessNumber = new GuessNumberGame(generator);
+        }
+    </script>
+</body>
+</html>

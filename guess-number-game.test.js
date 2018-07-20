@@ -5,9 +5,8 @@ describe('GuessNumberGame', function() {
     let generator;
 
     beforeEach(() => {
-        jest.spyOn(Generator.prototype, "generate")
-            .mockReturnValue('1 2 3 4');
         generator = new Generator();
+        jest.spyOn(generator, "generate").mockReturnValue('1 2 3 4');
     });
 
     it('should return 4A0B for checkInput 1 2 3 4 when answer is 1 2 3 4', function () {

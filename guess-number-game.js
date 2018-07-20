@@ -10,9 +10,7 @@ class GuessNumberGame {
         if (new Validate().validateInput(input)) {
             const {position, includeNumber} = this.compare(input);
             let str = `${position}A${includeNumber - position}B`;
-            if (str === '4A0B') {
-                str += '\nyou win';
-            } else if (this.count >= 5) {
+            if (this.count >= 5) {
                 str += '\ngame over';
             }
 
@@ -26,6 +24,7 @@ class GuessNumberGame {
     compare(input) {
         const inputs = input.split(' ');
         const answers = this.answer.split(' ');
+        console.log(answers, '------------')
         const position = inputs.filter((item, index) => answers[index] === item).length;
         const includeNumber = inputs.filter(item => answers.includes(item)).length
 
@@ -33,4 +32,11 @@ class GuessNumberGame {
     }
 }
 
-module.exports = GuessNumberGame;
+
+if (typeof module !== "undefined") {
+    module.exports = GuessNumberGame;
+}
+
+if (typeof window !== "undefined") {
+    window.GuessNumberGame = GuessNumberGame
+}

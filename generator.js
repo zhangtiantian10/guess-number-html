@@ -16,4 +16,11 @@ class Generator {
     }
 }
 
-module.exports = Generator;
+if (typeof module !== "undefined") {
+
+    module.exports = Generator;
+}
+
+if (typeof window !== "undefined") {
+    window.Generator = Generator
+}

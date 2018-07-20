@@ -10,4 +10,11 @@ class Validate {
     }
 }
 
-module.exports = Validate;
+if (typeof module !== "undefined") {
+
+    module.exports = Validate;
+}
+
+if (typeof window !== "undefined") {
+    window.Validate = Validate
+}

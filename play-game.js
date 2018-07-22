@@ -1,3 +1,6 @@
+const Generator = require('./generator');
+const GuessNumberGame = require("./guess-number-game");
+
 let generator = new Generator();
 let guessNumber = new GuessNumberGame(generator);
 let results = [];

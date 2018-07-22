@@ -1,4 +1,4 @@
-// const Validate = require('./validate');
+const Validate = require('./validate');
 
 class GuessNumberGame {
     constructor(generator) {
